@@ -1,0 +1,11 @@
+INSERT INTO WorldMarketIndices SELECT AI.Close, BrSt.Close, GDAX.Close, HS.Close, JI.Close, FTSE.Close, MI.Close, NZSE.Close,
+OSSE.Close, SPI.Close, S.Close, SC.Close, ShC.Close, SM.Close, TW.Close, TASE.Close, TI.Close, VI.Close
+FROM AthensIndex AI INNER JOIN BrusselsStockExch BrSt ON (AI.Date = BrSt.Date) 
+INNER JOIN GermanyDAX GDAX ON (BrSt.Date = GDAX.Date) INNER JOIN HangSeng HS ON (GDAX.Date = HS.Date) 
+INNER JOIN JakartaIndex JI ON (HS.Date = JI.Date) INNER JOIN LondonFTSE FTSE ON (JI.Date = FTSE.Date) 
+INNER JOIN MexicoIndex MI ON (FTSE.Date = MI.Date) INNER JOIN NewZealandSE NZSE ON (MI.Date = NZSE.Date) 
+INNER JOIN OsakaStockEx OSSE ON (NZSE.Date = OSSE.Date) INNER JOIN SaoPaoloIndex SPI ON (OSSE.Date = SPI.Date) 
+INNER JOIN Sensex S ON (SPI.Date = S.Date) INNER JOIN	SeoulComposite SC ON (S.Date = SC.Date) 
+INNER JOIN ShanghaiComposite ShC ON (SC.Date = ShC.Date) INNER JOIN SwissMarket SM ON (ShC.Date = SM.Date) 
+INNER JOIN TaiwanWeighted TW ON (SM.Date = TW.Date) INNER JOIN TelAvivSE TASE ON (TW.Date = TASE.Date) 
+INNER JOIN TorontoIndex TI ON (TASE.Date = TI.Date) INNER JOIN ViennaIndex VI ON (TI.Date = VI.Date)
